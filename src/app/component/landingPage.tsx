@@ -12,21 +12,25 @@ const pt = PT_Serif({
 
 function LandingPage() {
   return (
-    <div className={`bg-green-950 h-full overflow-hidden w-full ${pt.className}`}>
-      <div className='px-44 py-5 flex justify-between'>
+    <div className={`bg-green-950 h-auto overflow-hidden w-full ${pt.className}`}>
+      <div className='p-2 md:px-44 md:py-5 md:flex justify-between'>
         <div>
-          <div>Navigation Bar</div>
-          <div className='text-7xl text-white mt-28'>Know your customers, grow your business.</div>
-          <p className='max-w-[500px] mt-10 text-neutral-400'>Vergé helps you track, analyze, and understand your customers with real-time insights to boost retention and revenue.</p>
+          <div>SMS sendig App - assignment</div>
+          <div className='text-3xl text-center md:text-left md:text-7xl text-white mt-28'>Know your customers, grow your business.</div>
+          <p className='text-center md:text-left text-sm md:text-lg max-w-[500px] mt-2 md:mt-10 text-neutral-400'>Get Instant SMS and grow your Business</p>
           <div className='mt-10'>
             <Email />
           </div>
           <div className='mt-5'>
-            <Hori/>
+            <Hori />
           </div>
         </div>
-        <div className='relative w-[600px] h-[800px]'>
-          <img src="/image.png" alt="Business illustration" className='w-full h-[650px] rounded-xl mb-10 object-cover' />
+        <div className='relative w-full h-auto mt-4 md:mt-0 md:w-[600px] md:h-[800px]'>
+          <img 
+            src="/image.png" 
+            alt="Business illustration" 
+            className='w-full h-auto md:w-full md:h-[650px] rounded-xl mb-10 object-cover' 
+          />
         </div>
       </div>
     </div>

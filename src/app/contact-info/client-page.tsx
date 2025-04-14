@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { PT_Serif } from "next/font/google"
 import Send from '../component/send'
 import History from '../component/History'
+import { useRouter } from 'next/navigation'
 
 const pt = PT_Serif({
   subsets: ['latin'],
@@ -13,6 +14,7 @@ const pt = PT_Serif({
 })
 
 export default function ClientPage() {
+    const router = useRouter();
   const [showSend, setSend] = useState(false)
   const [history, setHistory] = useState(false)
 
@@ -21,11 +23,18 @@ export default function ClientPage() {
   const no = searchParams.get('number')
 
   return (
-    <div className={`bg-[#f8f4ec] h-screen relative z-0 text-black w-full ${pt.className} py-20`}>
+    <div className={`bg-[#f8f4ec] h-screen relative p-2 z-0 text-black w-full ${pt.className} py-10`}>
+        <div onClick={()=>{
+            router.push('/')
+        }} className='mx-3'>
+              <div className='transition-all hover:-translate-y-0.5 duration-300 ease-in-out rounded-full text-center py-2 cursor-pointer bg-green-800 text-white w-[100px]'>
+                Home
+              </div>
+            </div>
       <div className='text-center'>
-        <div className='text-center text-5xl'>Customer data made simple.</div>
-        <div className='flex justify-center w-full'>
-          <div onClick={() => setHistory(true)} className='mt-10'>
+      <div className='text-center text-3xl mt-10 md:text-5xl'>Customer data made simple.</div>
+      <div className='flex justify-center w-full'>
+          <div onClick={() => setHistory(true)} className='mt-4 md:mt-10'>
             <div className='transition-all hover:-translate-y-0.5 duration-300 ease-in-out rounded-full text-center py-2 cursor-pointer bg-green-800 text-white w-[200px]'>
               Message History
             </div>
@@ -36,8 +45,8 @@ export default function ClientPage() {
       <div className='flex justify-center mt-5'>
         <div className='bg-black w-[1000px] h-[300px] rounded-xl text-white py-10 px-5'>
           <div className='flex flex-col items-center'>
-            <p className='text-4xl text-green-700'>Contact Details:</p>
-            <div className='mt-5 text-xl flex flex-col'>
+            <p className='text-2xl md:text-4xl text-green-700'>Contact Details:</p>
+            <div className='mt-5 text-md md:text-xl flex flex-col'>
               <p>Name: <span className='text-neutral-400'>{name}</span></p>
               <p>Number: <span className='text-neutral-400'>{no}</span></p>
             </div>

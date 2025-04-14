@@ -3,7 +3,7 @@ import ClientPage from './client-page'
 
 export default function Page() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className='inset-0 flex justify-center items-center'>Loading...</div>}>
       <ClientPage />
     </Suspense>
   )

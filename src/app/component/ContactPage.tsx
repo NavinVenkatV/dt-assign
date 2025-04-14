@@ -35,25 +35,24 @@ function ContactPage() {
     }
 
     return (
-        <div className={`bg-[#f8f4ec] h-[120%] text-black w-full ${pt.className} py-20`}>
+        <div className={`bg-[#f8f4ec] h-[120%] px-2 text-black w-full ${pt.className} py-20`}>
             <div className='text-center'>
-                <div className='text-center text-5xl'>Customer data made simple.</div>
+                <div className='text-center text-3xl md:text-5xl'>Customer data made simple.</div>
                 <div className='flex justify-center '>
-                    <p className='mt-10 text-neutral-500 max-w-[500px]'>
-                        Vergé turns complex data into clear insights, helping you make smarter decisions that improve retention and drive growth.
-                    </p>
+                    <p className='mt-4 md:mt-10 text-sm md:text-lg text-neutral-500 max-w-[500px]'>
+                    Get Instant SMS and grow your Business</p>
                 </div>
             </div>
 
             <div className='flex justify-center mt-5'>
                 <div className='bg-black w-[1000px] h-auto rounded-xl text-white py-10 px-5'>
                     <div className='flex justify-between'>
-                        <p className='text-4xl flex flex-col justify-center text-green-700'>List of Contacts to send SMS</p>
+                        <p className='text-2xl md:text-4xl  flex flex-col justify-center text-green-700'>List of Contacts to send SMS</p>
                         {name != "Select Contact" && <div
                         onClick={handleNext}
                         >
                             <div
-                                className='mt-5 transition-all duration-300 ease-in-out rounded-full text-center py-2 cursor-pointer bg-green-800 text-white w-[100px]'
+                                className='mt-5 hover:-translate-y-0.5 transition-all duration-300 ease-in-out rounded-full text-center py-2 cursor-pointer bg-green-800 text-white w-[100px]'
                             >
                                 Next
                             </div>
@@ -63,7 +62,7 @@ function ContactPage() {
                     {/* Button to toggle contacts */}
                     <div
                         onClick={() => setShowContacts(!showContacts)}
-                        className='mt-5 transition-all duration-300 ease-in-out rounded-full text-center py-2 cursor-pointer bg-green-800 text-white w-[250px]'
+                        className='mt-5 transition-all hover:-translate-y-0.5 duration-300 ease-in-out rounded-full text-center py-2 cursor-pointer bg-green-800 text-white w-[250px]'
                     >
                         {name}
                     </div>
@@ -74,7 +73,7 @@ function ContactPage() {
                             {contacts.map((c, idx) => (
                                 <div
                                     key={idx}
-                                    className='bg-neutral-800 hover:bg-green-600 transition-all duration-400 ease-in-out px-4 py-2 rounded-lg cursor-pointer '
+                                    className='bg-neutral-800  hover:bg-green-600 transition-all duration-400 ease-in-out px-4 py-2 rounded-lg cursor-pointer '
                                     onClick={() => handleSelect(c.name, c.number)}
                                 >
                                     {c.name}

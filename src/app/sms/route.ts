@@ -1,33 +1,22 @@
-import { NextRequest, NextResponse } from "next/server"
-const { Vonage } = require('@vonage/server-sdk')
+import { NextRequest, NextResponse } from "next/server";
+import twilio from "twilio";
 
-const vonage = new Vonage({
-    apiKey: "2e10154d",
-    apiSecret: "t1vwszb0ATG66qaH"
-})
-
+const client = twilio(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
 
 export async function POST(req: NextRequest) {
-    const { to, text } = await req.json();
-    
-    if(!to || !text) {
-        return NextResponse.json({message: "Invalid Input"}, {status: 400})
-    }
-
-    try {
-        const from = "Vonage APIs"
-        await vonage.sms.send({ to, from, text })
-        
-        // Store the message in the database
-        // await prisma.text.create({
-        //     data : {
-        //         text
-        //     }
-        // })
-
-        return NextResponse.json({message: "Message sent successfully"})
-    } catch(e) {
-        console.error("Error sending SMS:", e)
-        return NextResponse.json({message: "Something went wrong"}, {status: 500})
-    }
+  const { to, text } = await req.json();
+  const number = `+${to.trim()}`;
+  const accountSid = 'AC24965f43d2f864cde1e406c01798a149';
+const authToken = 'f25faa82b3acd488ad976774108bcb20';
+const client = require('twilio')(accountSid, authToken);
+client.messages
+    .create({
+        body: text,
+        from: '+17156465239',
+        to: number
+    })
+    return NextResponse.json({message : "Sent Successfully"})
 }

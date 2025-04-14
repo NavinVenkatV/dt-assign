@@ -11,7 +11,7 @@ export default function Home() {
         <ContactPage/>
       </div>
       <div>
-        
+        <div>2025 - Developed By Navin Venkat</div>
       </div>
     </div>
   );
