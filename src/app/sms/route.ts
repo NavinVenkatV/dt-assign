@@ -8,11 +8,12 @@ const client = twilio(
 );
 
 export async function POST(req: NextRequest) {
-  console.log(process.env.TWILIO_ACCOUNT_SID)
   const { to, text } = await req.json();
   const number = `+${to.trim()}`;
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
+  console.log(accountSid)
+  console.log(authToken)
   try {
     const client = require('twilio')(accountSid, authToken);
     client.messages
